@@ -1,0 +1,183 @@
+<section class="flex flex-col min-h-screen text-white bg-white bg-cover bg-blend-overlay bg-fixed" style="background-image: url()">
+    <!-- Navbar -->
+    <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="flex items-center justify-between p-6 lg:px-8 bg-gray-50" aria-label="Global">
+          <div class="flex lg:flex-1">
+            <a routerLink="/home" class="-m-1.5 p-1.5">
+              <span class="sr-only">FitSocial</span>
+              <img class="h-8 w-auto" src="https://us.zwift.com/cdn/shop/files/zwf_icon_rgb_og_1200x.png?v=1648572513" alt="">
+            </a>
+          </div>
+          <div class="flex lg:hidden">
+            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+              <span class="sr-only">Open main menu</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="hidden lg:flex lg:gap-x-12">
+            <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Product</a> -->
+            <a href="#" class="text-sm font-semibold leading-6 text-black">PLANES</a>
+            <a href="#" class="text-sm font-semibold leading-6 text-black">ENTRENAMIENTOS</a>
+            <a href="#" class="text-sm font-semibold leading-6 text-black">CUENTA</a>
+          </div>
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <button class="py-2 px-8 rounded-xl bg-orange-500 hover:bg-orange-600" (click)="indexReturn()">
+              <a class="text-base font-semibold leading-6 text-white">Registrate</a>
+            </button>
+            <button class="text-black">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <div class="lg:hidden" role="dialog" aria-modal="true">
+          <!-- Background backdrop, show/hide based on slide-over state. -->
+          <div class="fixed inset-0 z-50"></div>
+          <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div class="flex items-center justify-between">
+              <a href="#" class="-m-1.5 p-1.5">
+                <span class="sr-only">FitSocial</span>
+                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+              </a>
+              <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                <span class="sr-only">Close menu</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Planes</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Entrenamientos</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Cuenta</a>
+                </div>
+                <div class="py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </header>
+    <!-- Hero Section Content -->
+    <div class="space-y-4 xl:space-y-4 container flex flex-col mt-24 mb-10 flex-1 mx-auto">
+        <div class=" items-start mt-10 mb-5">
+            <!-- Breadcrumbs -->
+            <nav class="bg-white py-2">
+                <div class="container mx-auto">
+                  <ol class="list-reset flex text-gray-600">
+                    <li><a href="#" class="text-blue-600">Home</a></li>
+                    <li class="mx-2">/</li>
+                    <li><a href="#" class="text-blue-600">Entrenamientos</a></li>
+                    <li class="mx-2">/</li>
+                    <li>Buscar Entrenamiento</li>
+                  </ol>
+                </div>
+            </nav>
+            <div class="flex">
+                <h1 class="text-black text-start text-5xl font-bold flex-auto">Busca un entrenamiento.</h1>
+                <button class="p-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 00-1.032-.211 50.89 50.89 0 00-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 002.433 3.984L7.28 21.53A.75.75 0 016 21v-4.03a48.527 48.527 0 01-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979z" />
+                        <path d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 001.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0015.75 7.5z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex items-center mt-5">
+                <input type="text" placeholder="Buscar..." class="border rounded-l-md py-2 px-3 w-80">
+                <button type="submit" class="bg-orange-500 text-white py-2 px-2 rounded-r-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+            <h1 class="text-black text-start text-2xl font-bold mt-5">Plantillas personalizadas</h1>
+        </div>
+        <div class="flex flex-row text-black rounded-xl gap-10">
+            
+            <div class="basis-1/2 bg-gray-50 p-8 rounded-xl">
+                <!-- Title & Buttons Container -->
+                <div class="flex gap-2">
+                    <h2 class="text-3xl font-bold flex-auto">Chest & Triceps</h2>
+                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                            <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                            <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- Ejercicios -->
+                <div class="flex flex-col mt-3 text-lg">
+                    <h3>3 x Squat (Barbell)</h3>
+                    <h3>3 x Leg Extension (Machine)</h3>
+                    <h3>3 x Flat Leg Raise</h3>
+                    <h3>3 x Standing Calf Raise (Dumbbell)</h3>
+                    <h3>3 x Leg Extension (Machine)</h3>
+                    <h3>3 x Flat Leg Raise</h3>
+                    <h3>3 x Standing Calf Raise (Dumbbell)</h3>
+                </div>
+                <div class="flex mt-10">
+                    <button class="w-full font-bold text-xl py-5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" routerLink="/searchtraining">
+                        AÑADIR ENTRENAMIENTO
+                    </button>
+                </div>
+            </div>
+            <div class="basis-1/2 bg-gray-50 p-8 rounded-xl">
+                <!-- Title & Buttons Container -->
+                <div class="flex gap-2">
+                    <h2 class="text-3xl font-bold flex-auto">Chest & Triceps</h2>
+                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                            <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                            <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- Ejercicios -->
+                <div class="flex flex-col mt-3 text-lg">
+                    <h3>3 x Squat (Barbell)</h3>
+                    <h3>3 x Leg Extension (Machine)</h3>
+                    <h3>3 x Flat Leg Raise</h3>
+                    <h3>3 x Standing Calf Raise (Dumbbell)</h3>
+                    <h3>3 x Leg Extension (Machine)</h3>
+                    <h3>3 x Flat Leg Raise</h3>
+                    <h3>3 x Standing Calf Raise (Dumbbell)</h3>
+                </div>
+                <div class="flex mt-10">
+                    <button class="w-full font-bold text-xl py-5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" routerLink="/searchtraining">
+                        AÑADIR ENTRENAMIENTO
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>

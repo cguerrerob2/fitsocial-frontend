@@ -7,12 +7,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { TrainingComponent } from './components/training/training.component';
+import { SearchtrainingComponent } from './components/searchtraining/searchtraining.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    TrainingComponent,
+    SearchtrainingComponent
   ],
   imports: [
     BrowserModule,
