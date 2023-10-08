@@ -100,11 +100,10 @@
             <h1 class="text-black text-start text-2xl font-bold mt-5">Plantillas personalizadas</h1>
         </div>
         <div class="flex flex-row text-black rounded-xl gap-10">
-            
-            <div class="basis-1/2 bg-gray-50 p-8 rounded-xl">
+            <div class="basis-1/2 bg-gray-50 p-8 rounded-xl" *ngFor="let exercise of exercisesTemplates">
                 <!-- Title & Buttons Container -->
                 <div class="flex gap-2">
-                    <h2 class="text-3xl font-bold flex-auto">Chest & Triceps</h2>
+                    <h2 class="text-3xl font-bold flex-auto">{{ exercise.title }}</h2>
                     <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
@@ -125,22 +124,20 @@
                 </div>
                 <!-- Ejercicios -->
                 <div class="flex flex-col mt-3 text-lg">
-                    <h3>3 x Squat (Barbell)</h3>
-                    <h3>3 x Leg Extension (Machine)</h3>
-                    <h3>3 x Flat Leg Raise</h3>
-                    <h3>3 x Standing Calf Raise (Dumbbell)</h3>
-                    <h3>3 x Leg Extension (Machine)</h3>
-                    <h3>3 x Flat Leg Raise</h3>
-                    <h3>3 x Standing Calf Raise (Dumbbell)</h3>
+                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
+                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
+                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
+                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
+                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
+                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
                 </div>
-                <div class="flex mt-10">
+                <div class="flex mt-5">
                     <button class="w-full font-bold text-xl py-5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" routerLink="/searchtraining">
                         AÑADIR ENTRENAMIENTO
                     </button>
                 </div>
             </div>
-            <div class="basis-1/2 bg-gray-50 p-8 rounded-xl">
-                <!-- Title & Buttons Container -->
+            <!-- <div class="basis-1/2 bg-gray-50 p-8 rounded-xl">
                 <div class="flex gap-2">
                     <h2 class="text-3xl font-bold flex-auto">Chest & Triceps</h2>
                     <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
@@ -161,7 +158,6 @@
                         </svg>
                     </button>
                 </div>
-                <!-- Ejercicios -->
                 <div class="flex flex-col mt-3 text-lg">
                     <h3>3 x Squat (Barbell)</h3>
                     <h3>3 x Leg Extension (Machine)</h3>
@@ -176,7 +172,7 @@
                         AÑADIR ENTRENAMIENTO
                     </button>
                 </div>
-            </div>
+            </div> -->
             
         </div>
     </div>
