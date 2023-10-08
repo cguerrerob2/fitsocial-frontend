@@ -32,20 +32,22 @@ export class LoginComponent implements OnInit {
 
   public submitForm() {
     if (this.loginForm.invalid) {
-      return
+      return;
     } else {
       this.loginSuccess = true; // Marca como inicio de sesión exitoso
-      // this.router.navigate(['/home']);
-      console.log(this.loginForm.value)
+      setTimeout(() => {
+        this.router.navigate(['/training']); // Redirecciona a '/training' después de 2000 ms (2 segundos)
+      }, 2000); // Cambia el tiempo (en milisegundos) según tus necesidades
+      console.log(this.loginForm.value);
     }
   }
 
-  nuevoUsuario: Usuario = {
+  nuevoUsuario: Usuario[] = [{
     id: 0, // ID User reference
     email: '',
     password: '',
     country: '',
     weight: 0,
     height: 0
-  };
+  }];
 }
