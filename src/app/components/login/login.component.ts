@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/app.component';
+import { Usuario, UsersApiService } from 'src/@api/users-api.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor (
     private fb:FormBuilder,
-    private router: Router
+    private router: Router,
+    private usersApi: UsersApiService
   ) {}
 
   public loginForm!:FormGroup;
@@ -25,8 +26,8 @@ export class LoginComponent implements OnInit {
 
   private createLoginForm(): FormGroup {
     return this.fb.group({
-      usuario: ['',[Validators.required]],
-      password: ['',[Validators.required]]
+      email: ['',[Validators.required, Validators.email]],
+      password: ['',[Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -34,20 +35,25 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     } else {
-      this.loginSuccess = true; // Marca como inicio de sesión exitoso
-      setTimeout(() => {
-        this.router.navigate(['/training']); // Redirecciona a '/training' después de 2000 ms (2 segundos)
-      }, 2000); // Cambia el tiempo (en milisegundos) según tus necesidades
-      console.log(this.loginForm.value);
+      // Obtén los datos del formulario
+      const formData = this.loginForm.value;
+
+      // Llama al servicio para registrar al usuario
+      this.usersApi.register(formData).subscribe(
+        (response) => {
+          // Procesa la respuesta del servidor aquí
+          this.loginSuccess = true; // Marca como inicio de sesión exitoso
+          setTimeout(() => {
+            this.router.navigate(['/training']); // Redirecciona a '/training' después de 2000 ms (2 segundos)
+          }, 2000); // Cambia el tiempo (en milisegundos) según tus necesidades
+        },
+        (error) => {
+          // Maneja los errores aquí
+          console.error('Error de registro:', error);
+        }
+      );
     }
   }
 
-  nuevoUsuario: Usuario[] = [{
-    id: 0, // ID User reference
-    email: '',
-    password: '',
-    country: '',
-    weight: 0,
-    height: 0
-  }];
+  nuevoUsuario: Usuario[] = []
 }
