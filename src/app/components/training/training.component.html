@@ -22,10 +22,25 @@
             <a href="#" class="text-sm font-semibold leading-6 text-black">ENTRENAMIENTOS</a>
             <a href="#" class="text-sm font-semibold leading-6 text-black">CUENTA</a>
           </div>
+          <!-- User Card -->
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <button class="py-2 px-8 rounded-xl bg-orange-500 hover:bg-orange-600" (click)="indexReturn()">
-              <a class="text-base font-semibold leading-6 text-white">Registrate</a>
-            </button>
+            <div class="relative group">
+              <button class="flex items-center space-x-2 text-black">
+                  <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Imagen de Usuario" class="w-6 h-6 rounded-full">
+                  <span class="hidden md:block">Usuario</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current group-hover:text-gray-400 transition duration-300 transform group-hover:rotate-180" viewBox="0 0 20 20">
+                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                  </svg>
+              </button>
+              <div class="hidden group-hover:block absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg">
+                <ul class="py-2">
+                  <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Perfil</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Configuración</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-red-500 hover:bg-gray-100">Cerrar Sesión</a></li>
+                </ul>
+              </div>
+            </div>
+          
             <button class="text-black">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -126,7 +141,7 @@
                     <div class="flex items-center mt-3">
                         <input type="checkbox" class="h-5 w-5 rounded-full">
                         <div class="ml-3">
-                          <label>Lanzate de un puente</label>
+                          <label>Completa un reto</label>
                           <p class="text-sm text-gray-500">Descripción</p>
                         </div>
                     </div>

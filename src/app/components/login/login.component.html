@@ -23,7 +23,7 @@
               <a href="#" class="text-sm font-semibold leading-6 text-gray-50">CUENTA</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-              <button class="py-2 px-8 rounded-xl bg-orange-500 hover:bg-orange-600" (click)="indexReturn()">
+              <button class="py-2 px-8 rounded-xl bg-orange-500 hover:bg-orange-600" routerLink="/home">
                 <a class="text-base font-semibold leading-6 text-white">Registrate</a>
               </button>
               <button>
@@ -72,11 +72,26 @@
                 <h3 class="font-semibold tracking-tight text-2xl">Create an account</h3>
                 <p class="text-sm text-muted-foreground">Enter your email below to create your account</p>
                 <a href="" class="text-sm text-muted-foreground text-blue-500">¿Ya tienes una cuenta? Inicia Sesion.</a>
-              </div><div class="p-6 pt-0 grid gap-4">
+              </div>
+              <form class="p-6 pt-0 grid gap-4" [formGroup]="loginForm" (ngSubmit)="submitForm()">
                 <div class="grid grid-cols-1 gap-6 text-black">
-                      <div class="grid gap-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">Email</label><input class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="email" placeholder="m@example.com" type="email"></div>
-                      <div class="grid gap-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="password">Password</label><input class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="password" type="password"></div></div><div class="flex items-center py-3">
-                        <button (click)="indexReturn()" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-orange-500 text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full">Create account</button></div></div>
+                      <div class="grid gap-2">
+                        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">Email</label>
+                        <input formControlName="email" required class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="email" placeholder="m@example.com" type="email">
+                      </div>
+                      <div class="grid gap-2">
+                        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="password">Password</label>
+                        <input formControlName="password" required class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="password" type="password">
+                      </div>
+                    </div>
+                    <div class="flex items-center py-3">
+                        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-orange-500 text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full">Create account</button>
+                      </div>
+              </form>
+            </div>
+            <div class="fixed bottom-5 right-0 m-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg" role="alert" *ngIf="loginSuccess">
+              <p class="font-bold">Registro Exitoso</p>
+              <p>Tu registro se ha completado con éxito. ¡Bienvenido a nuestra comunidad!</p>
             </div>
           </div>
   </section>
