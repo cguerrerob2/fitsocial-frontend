@@ -1,0 +1,229 @@
+<section class="flex flex-col min-h-screen text-white bg-white bg-cover bg-blend-overlay bg-fixed" style="background-image: url()">
+    <!-- Navbar -->
+    <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="flex items-center justify-between p-6 lg:px-8 bg-gray-50" aria-label="Global">
+          <div class="flex lg:flex-1">
+            <a routerLink="/home" class="-m-1.5 p-1.5">
+              <span class="sr-only">FitSocial</span>
+              <img class="h-8 w-auto" src="https://us.zwift.com/cdn/shop/files/zwf_icon_rgb_og_1200x.png?v=1648572513" alt="">
+            </a>
+          </div>
+          <div class="flex lg:hidden">
+            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+              <span class="sr-only">Open main menu</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="hidden lg:flex lg:gap-x-12">
+            <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Product</a> -->
+            <a href="#" class="text-sm font-semibold leading-6 text-black">PLANES</a>
+            <a href="#" class="text-sm font-semibold leading-6 text-black">ENTRENAMIENTOS</a>
+            <a href="#" class="text-sm font-semibold leading-6 text-black">CUENTA</a>
+          </div>
+          <!-- User Card -->
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <div class="relative group">
+              <button class="flex items-center space-x-2 text-black">
+                  <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Imagen de Usuario" class="w-6 h-6 rounded-full">
+                  <span class="hidden md:block">Usuario</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current group-hover:text-gray-400 transition duration-300 transform group-hover:rotate-180" viewBox="0 0 20 20">
+                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                  </svg>
+              </button>
+              <div class="hidden group-hover:block absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg">
+                <ul class="py-2">
+                  <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Perfil</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Configuración</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-red-500 hover:bg-gray-100">Cerrar Sesión</a></li>
+                </ul>
+              </div>
+            </div>
+          
+            <button class="text-black">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <div class="lg:hidden" role="dialog" aria-modal="true">
+          <!-- Background backdrop, show/hide based on slide-over state. -->
+          <div class="fixed inset-0 z-50"></div>
+          <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div class="flex items-center justify-between">
+              <a href="#" class="-m-1.5 p-1.5">
+                <span class="sr-only">FitSocial</span>
+                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+              </a>
+              <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                <span class="sr-only">Close menu</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Planes</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Entrenamientos</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Cuenta</a>
+                </div>
+                <div class="py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </header>
+    <!-- Hero Section Content -->
+    <div class="space-y-4 xl:space-y-4 container flex flex-col mt-24 mb-10 flex-1 mx-auto">
+        <div class=" items-start mt-10 mb-5">
+            <!-- Breadcrumbs -->
+            <nav class="bg-white py-2">
+                <div class="container mx-auto">
+                  <ol class="list-reset flex text-gray-600">
+                    <li><a href="#" class="text-blue-600">Home</a></li>
+                    <!-- <li class="mx-2">/</li> -->
+                    <!-- <li><a href="#" class="text-blue-600">Sección 1</a></li> -->
+                    <li class="mx-2">/</li>
+                    <li>Perfil</li>
+                  </ol>
+                </div>
+            </nav>
+            <div class="flex">
+                <h1 class="text-black text-start text-5xl font-bold flex-auto">Mi Perfil.</h1>
+                <button class="p-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="flex flex-row text-black rounded-xl gap-10">
+            
+            <div class="w-full bg-gray-50 p-8 rounded-xl">
+                <div class="max-w-md p-5">
+                    <div class="md:flex">
+                        <div class="md:flex-shrink-0">
+                            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Imagen de Usuario" class="rounded-full h-36 w-full object-cover md:w-36">
+                        </div>
+                        <div class="px-8 flex items-center w-full">
+                            <div>
+                                <div class="uppercase tracking-wide text-sm text-orange-500 font-semibold">Usuario</div>
+                                <h2 class="text-2xl font-semibold">Username</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Title & Buttons Container -->
+                <div class="grid">
+                    <div class="p-5">
+                        <div class="mb-6">
+                            <h2 class="text-2xl font-semibold">Información Personal</h2>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-current text-orange-500">
+                                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM6.262 6.072a8.25 8.25 0 1010.562-.766 4.5 4.5 0 01-1.318 1.357L14.25 7.5l.165.33a.809.809 0 01-1.086 1.085l-.604-.302a1.125 1.125 0 00-1.298.21l-.132.131c-.439.44-.439 1.152 0 1.591l.296.296c.256.257.622.374.98.314l1.17-.195c.323-.054.654.036.905.245l1.33 1.108c.32.267.46.694.358 1.1a8.7 8.7 0 01-2.288 4.04l-.723.724a1.125 1.125 0 01-1.298.21l-.153-.076a1.125 1.125 0 01-.622-1.006v-1.089c0-.298-.119-.585-.33-.796l-1.347-1.347a1.125 1.125 0 01-.21-1.298L9.75 12l-1.64-1.64a6 6 0 01-1.676-3.257l-.172-1.03z" clip-rule="evenodd" />
+                              </svg>
+                              
+                            <span class="text-gray-600">País: <strong>Nombre del País</strong></span>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-current text-orange-500">
+                                <path fill-rule="evenodd" d="M12 2.25a.75.75 0 01.75.75v.756a49.106 49.106 0 019.152 1 .75.75 0 01-.152 1.485h-1.918l2.474 10.124a.75.75 0 01-.375.84A6.723 6.723 0 0118.75 18a6.723 6.723 0 01-3.181-.795.75.75 0 01-.375-.84l2.474-10.124H12.75v13.28c1.293.076 2.534.343 3.697.776a.75.75 0 01-.262 1.453h-8.37a.75.75 0 01-.262-1.453c1.162-.433 2.404-.7 3.697-.775V6.24H6.332l2.474 10.124a.75.75 0 01-.375.84A6.723 6.723 0 015.25 18a6.723 6.723 0 01-3.181-.795.75.75 0 01-.375-.84L4.168 6.241H2.25a.75.75 0 01-.152-1.485 49.105 49.105 0 019.152-1V3a.75.75 0 01.75-.75zm4.878 13.543l1.872-7.662 1.872 7.662h-3.744zm-9.756 0L5.25 8.131l-1.872 7.662h3.744z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-600">Peso: <strong>70 kg</strong></span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-current text-orange-500">
+                                <path fill-rule="evenodd" d="M2.25 2.25a.75.75 0 000 1.5H3v10.5a3 3 0 003 3h1.21l-1.172 3.513a.75.75 0 001.424.474l.329-.987h8.418l.33.987a.75.75 0 001.422-.474l-1.17-3.513H18a3 3 0 003-3V3.75h.75a.75.75 0 000-1.5H2.25zm6.54 15h6.42l.5 1.5H8.29l.5-1.5zm8.085-8.995a.75.75 0 10-.75-1.299 12.81 12.81 0 00-3.558 3.05L11.03 8.47a.75.75 0 00-1.06 0l-3 3a.75.75 0 101.06 1.06l2.47-2.47 1.617 1.618a.75.75 0 001.146-.102 11.312 11.312 0 013.612-3.321z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-600">Altura: <strong>175 cm</strong></span>
+                        </div>
+                        <div class="mt-8">
+                            <h2 class="text-2xl font-semibold">Descripción</h2>
+                            <div class="flex">
+                                <h1 class="text-gray-600 mt-4 text-start flex-auto">Agrega aquí tu descripción personal. Puedes compartir información adicional sobre ti.</h1>
+                                <button class="p-3 px-8 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="toggleModal()">
+                                    <a class="text-base font-semibold leading-6 text-white">Reestablecer Contraseña</a>
+                                </button>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        
+    </div>
+    
+</section>
+
+<!-- Modal -->
+<div *ngIf="isOpen" [@fadeInOut] class="modal">
+    <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!--
+          Background backdrop, show/hide based on modal state.
+      
+          Entering: "ease-out duration-300"
+            From: "opacity-0"
+            To: "opacity-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <!--
+              Modal panel, show/hide based on modal state.
+      
+              Entering: "ease-out duration-300"
+                From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                To: "opacity-100 translate-y-0 sm:scale-100"
+              Leaving: "ease-in duration-200"
+                From: "opacity-100 translate-y-0 sm:scale-100"
+                To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            -->
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                <div class="">
+                  <h1 class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left text-2xl font-bold mb-5">Reestablecer Contraseña</h1>
+                  <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                            Correo Electrónico
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Correo Electrónico">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                            Nueva Contraseña
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Nueva Contraseña">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <button type="button" class="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 sm:ml-3 sm:w-auto" (click)="toggleModal()">Accept</button>
+                <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" (click)="toggleModal()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</div>
