@@ -26,4 +26,9 @@ export class SearchtrainingComponent implements OnInit {
 
   exercisesTemplates: Exercises[] = []
 
+  isOpen = false;
+
+  toggleModal() {
+    this.isOpen = !this.isOpen;
+  }
 }

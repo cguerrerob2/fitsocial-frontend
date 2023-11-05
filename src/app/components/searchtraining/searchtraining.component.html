@@ -104,13 +104,13 @@
                 <!-- Title & Buttons Container -->
                 <div class="flex gap-2">
                     <h2 class="text-3xl font-bold flex-auto">{{ exercise.title }}</h2>
-                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="toggleModal()">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
                             <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
+                    <!-- <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="indexReturn()">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
                         </svg>
@@ -120,7 +120,7 @@
                             <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
                             <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
                         </svg>
-                    </button>
+                    </button> -->
                 </div>
                 <!-- Ejercicios -->
                 <div class="flex flex-col mt-3 text-lg">
@@ -177,3 +177,65 @@
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<div *ngIf="isOpen" [@fadeInOut] class="modal">
+  <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!--
+      Background backdrop, show/hide based on modal state.
+  
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+          <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 sm:mx-0 sm:h-10 sm:w-10">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6 text-orange-600">
+                  <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                  <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Descripcion</h3>
+                <div class="mt-2">
+                  <p class="text-sm text-gray-500">Esta rutina de entrenamiento está diseñada para trabajar dos grupos musculares diferentes en una sola sesión. La primera parte se enfoca en el desarrollo del pecho, mientras que la segunda parte se centra en el fortalecimiento de las piernas. Es importante recordar calentar adecuadamente antes de comenzar y estirar después de terminar para prevenir lesiones y mejorar la flexibilidad.</p>
+                </div>
+              </div>
+            </div>
+            <div class="sm:flex sm:items-start my-10">
+              <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 sm:mx-0 sm:h-10 sm:w-10">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-orange-600">
+                  <path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" />
+                </svg>
+                
+              </div>
+              <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Ejercicios</h3>
+                <div class="mt-2">
+                  <p class="text-sm text-gray-600 font-bold">Parte 1 - Pecho (Chest):</p>
+                  <p class="text-sm text-gray-500">Press de Banca: Realiza 4 series de este ejercicio, enfocándote en el pecho. Ajusta el peso y las repeticiones según tu nivel de condición física y objetivos personales. Asegúrate de mantener una técnica adecuada para evitar lesiones.</p>
+                </div>
+                <div class="mt-2">
+                  <p class="text-sm text-gray-600 font-bold">Parte 2 - Piernas (Leg Extension):</p>
+                  <p class="text-sm text-gray-500">Leg Extension en Máquina: Este ejercicio se centra en el fortalecimiento de los cuádriceps. Realiza 4 series con un peso adecuado y un número de repeticiones que desafíe tus piernas sin comprometer la forma.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+            <button type="button" (click)="toggleModal()" class="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 sm:ml-3 sm:w-auto">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

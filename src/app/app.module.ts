@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { TrainingComponent } from './components/training/training.component';
 import { SearchtrainingComponent } from './components/searchtraining/searchtraining.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
+import { CommunitiesComponent } from './components/communities/communities.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AccountDetailsComponent } from './components/account-details/account-de
     LoginComponent,
     TrainingComponent,
     SearchtrainingComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    CommunitiesComponent
   ],
   imports: [
     BrowserModule,
