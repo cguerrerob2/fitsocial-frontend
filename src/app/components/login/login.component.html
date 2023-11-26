@@ -71,7 +71,7 @@
               <div class="flex flex-col p-6 space-y-1 text-black">
                 <h3 class="font-semibold tracking-tight text-2xl">Create an account</h3>
                 <p class="text-sm text-muted-foreground">Enter your email below to create your account</p>
-                <a href="" class="text-sm text-muted-foreground text-blue-500">¿Ya tienes una cuenta? Inicia Sesion.</a>
+                <a routerLink="/register" class="text-sm text-muted-foreground text-blue-500">¿Ya tienes una cuenta? Inicia Sesion.</a>
               </div>
               <form class="p-6 pt-0 grid gap-4" [formGroup]="loginForm" (ngSubmit)="submitForm()">
                 <div class="grid grid-cols-1 gap-6 text-black">

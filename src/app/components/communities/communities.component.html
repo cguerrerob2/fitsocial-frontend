@@ -25,13 +25,13 @@
           <!-- User Card -->
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <div class="relative group">
-              <button class="flex items-center space-x-2 text-black">
-                  <img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Imagen de Usuario" class="w-6 h-6 rounded-full">
-                  <span class="hidden md:block">Usuario</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current group-hover:text-gray-400 transition duration-300 transform group-hover:rotate-180" viewBox="0 0 20 20">
-                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                  </svg>
-              </button>
+                <button class="flex items-center space-x-2 text-black">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Imagen de Usuario" class="w-6 h-6 rounded-full">
+                    <span class="hidden md:block">{{ userEmail }}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current group-hover:text-gray-400 transition duration-300 transform group-hover:rotate-180" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                    </svg>
+                </button>
               <div class="hidden group-hover:block absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg">
                 <ul class="py-2">
                   <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Perfil</a></li>
@@ -91,12 +91,12 @@
                     <!-- <li class="mx-2">/</li> -->
                     <!-- <li><a href="#" class="text-blue-600">Sección 1</a></li> -->
                     <li class="mx-2">/</li>
-                    <li>Comunidades</li>
+                    <li>Comunidad</li>
                   </ol>
                 </div>
             </nav>
             <div class="flex">
-                <h1 class="text-black text-start text-5xl font-bold flex-auto">Comunidades.</h1>
+                <h1 class="text-black text-start text-5xl font-bold flex-auto">Comunidad.</h1>
                 <button class="p-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" routerLink="/communities">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                         <path d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 00-1.032-.211 50.89 50.89 0 00-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 002.433 3.984L7.28 21.53A.75.75 0 016 21v-4.03a48.527 48.527 0 01-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979z" />

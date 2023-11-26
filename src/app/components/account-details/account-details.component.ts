@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersApiService, Usuario } from 'src/@api/users-api.service';
+import { AuthService } from 'src/@api/auth.service';
 
 @Component({
   selector: 'app-account-details',
@@ -23,13 +24,19 @@ export class AccountDetailsComponent implements OnInit {
   constructor(
     private router: Router,
     private usersApiService: UsersApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private auth: AuthService
   ) {}
 
   usuario: any;
   editProfileForm!: FormGroup; // Formulario reactivo para editar el perfil
+  userEmail: string | null = null;
 
   ngOnInit() {
+    this.auth.userEmail$.subscribe((email) => {
+      this.userEmail = email;
+    });
+    
     // Realiza una solicitud HTTP para obtener los datos del usuario desde la base de datos
     this.usersApiService.getListUsers()
       .then((data: Usuario[]) => {

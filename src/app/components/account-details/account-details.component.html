@@ -19,15 +19,15 @@
           <div class="hidden lg:flex lg:gap-x-12">
             <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Product</a> -->
             <a href="#" class="text-sm font-semibold leading-6 text-black">PLANES</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-black">ENTRENAMIENTOS</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-black">CUENTA</a>
+            <a routerLink="/training" class="text-sm font-semibold leading-6 text-black">ENTRENAMIENTOS</a>
+            <a routerLink="/profile" class="text-sm font-semibold leading-6 text-black">CUENTA</a>
           </div>
           <!-- User Card -->
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <div class="relative group">
               <button class="flex items-center space-x-2 text-black">
                   <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Imagen de Usuario" class="w-6 h-6 rounded-full">
-                  <span class="hidden md:block">Usuario</span>
+                  <span class="hidden md:block">{{ userEmail }}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current group-hover:text-gray-400 transition duration-300 transform group-hover:rotate-180" viewBox="0 0 20 20">
                       <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
                   </svg>
@@ -69,8 +69,8 @@
               <div class="-my-6 divide-y divide-gray-500/10">
                 <div class="space-y-2 py-6">
                   <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Planes</a>
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Entrenamientos</a>
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Cuenta</a>
+                  <a routerLink="/training" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Entrenamientos</a>
+                  <a routerLink="/profile" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Cuenta</a>
                 </div>
                 <div class="py-6">
                   <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>

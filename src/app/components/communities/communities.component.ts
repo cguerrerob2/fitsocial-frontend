@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { ChatApiService } from 'src/@api/chat-api.service';
 import { Community, CommunityApiService } from 'src/@api/community-api.service';
+import { AuthService } from 'src/@api/auth.service';
 
 @Component({
   selector: 'app-communities',
@@ -15,7 +16,8 @@ export class CommunitiesComponent implements OnInit {
     private router: Router,
     private chatApiService: ChatApiService,
     private formBuilder: FormBuilder,
-    private communityApiService: CommunityApiService
+    private communityApiService: CommunityApiService,
+    private auth: AuthService
   ) {
     // Genera un número aleatorio para la imagen
   }
@@ -29,8 +31,13 @@ export class CommunitiesComponent implements OnInit {
   communityList: any[] = [];
   chatMessages: any[] = [];
   newMessage: string = '';
+  userEmail: string | null = null;
 
   ngOnInit(): void {
+    this.auth.userEmail$.subscribe((email) => {
+      this.userEmail = email;
+    });
+
     this.loadChatMessages();
     this.loadCommunityList();
 

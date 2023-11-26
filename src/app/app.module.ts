@@ -11,6 +11,7 @@ import { TrainingComponent } from './components/training/training.component';
 import { SearchtrainingComponent } from './components/searchtraining/searchtraining.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
 import { CommunitiesComponent } from './components/communities/communities.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CommunitiesComponent } from './components/communities/communities.compo
     TrainingComponent,
     SearchtrainingComponent,
     AccountDetailsComponent,
-    CommunitiesComponent
+    CommunitiesComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
