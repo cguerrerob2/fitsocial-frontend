@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { OpenTablesApiService } from '../@api/open-tables-api.service';
 import { Router } from '@angular/router';
 
 @Component({

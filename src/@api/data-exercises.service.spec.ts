@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OpenTablesApiService } from './open-tables-api.service';
+import { DataExercisesService } from './data-exercises.service';
 
-describe('OpenTablesApiService', () => {
-  let service: OpenTablesApiService;
+describe('DataExercisesService', () => {
+  let service: DataExercisesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(OpenTablesApiService);
+    service = TestBed.inject(DataExercisesService);
   });
 
   it('should be created', () => {
