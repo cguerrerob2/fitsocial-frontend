@@ -115,35 +115,36 @@
 
         <!-- Plantillas Personalizadas -->
         <div class="flex flex-row text-black rounded-xl gap-10">
-            <div class="basis-1/5 bg-gray-50 p-8 rounded-xl" *ngFor="let exercise of exercisesTemplates">
-                <!-- Title & Buttons Container -->
-                <div class="flex gap-2">
-                    <h2 class="text-3xl font-bold flex-auto">{{ exercise.title }}</h2>
-                    <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="toggleModal()">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                            <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-                <!-- Ejercicios -->
-                <div class="flex flex-col mt-3 text-lg">
-                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
-                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
-                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
-                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
-                  <p>{{ exercise.reps }} x {{ exercise.exercises }}</p>
-                </div>
-                <div class="flex mt-5">
-                    <button class="w-full font-bold text-xl py-5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" routerLink="/searchtraining" (click)="addTraining(exercise)">
-                        AÑADIR 
-                    </button>
-                </div>
+          <div class="basis-1/5 bg-gray-50 p-8 rounded-xl" *ngFor="let training of trainingData">
+            <!-- Title & Buttons Container -->
+            <div class="flex gap-2">
+              <h2 class="text-3xl font-bold flex-auto">Training {{ training.id }}</h2>
+              <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="toggleModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                  <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                </svg>
+              </button>
             </div>
-            <div class="fixed bottom-5 right-0 m-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg" role="alert" *ngIf="addTrainingSuccess">
-              <p class="font-bold">Entrenamiento Añadido!</p>
-              <p>Tu entrenamiento se ha añadido con éxito.</p>
+            <!-- Ejercicios -->
+            <div class="flex flex-col mt-2 text-lg">
+              <p class="font-bold">{{ training.reps }} x {{ training.weight }} kg.</p>
+              <ul>
+                <li *ngFor="let exercise of training.exercises" class="mt-2">
+                  <h2 class="flex-auto">{{ exercise.exercise_Name }}</h2>
+                </li>
+              </ul>
             </div>
+            <div class="flex mt-5">
+              <!-- <button class="w-full font-bold text-xl py-5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" routerLink="/searchtraining" (click)="addTraining(exercise)">
+                AÑADIR
+              </button> -->
+            </div>
+          </div>
+          <div class="fixed bottom-5 right-0 m-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg" role="alert" *ngIf="addTrainingSuccess">
+            <p class="font-bold">Entrenamiento Añadido!</p>
+            <p>Tu entrenamiento se ha añadido con éxito.</p>
+          </div>
         </div>
 
         <!-- Create Training -->
@@ -153,7 +154,7 @@
           <div *ngIf="routine.length > 0" class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
             <div class="flex items-center justify-between mb-4">
                 <h5 class="text-xl font-bold leading-none text-gray-900">Rutina</h5>
-                <button class="text-sm font-medium rounded-xl bg-orange-500 hover:bg-orange-600 text-white px-4 py-1">
+                <button class="text-sm font-medium rounded-xl bg-orange-500 hover:bg-orange-600 text-white px-4 py-1" (click)="saveTraining(routine)">
                     Add
                 </button>
            </div>
@@ -175,17 +176,17 @@
 
                             <!-- Reps -->
                             <div class="flex-1 min-w-0 ms-4">
-                              <label for="counter-input" class="block mb-1 text-sm font-medium text-gray-900 dark:text-black">Reps</label>
+                              <label for="reps-input" class="block mb-1 text-sm font-medium text-gray-900 dark:text-black">Reps</label>
                               <div class="relative flex items-center">
-                                <input type="text" id="counter-input" data-input-counter class="rounded-full flex-shrink-0 text-gray-900 dark:text-black border-0 bg-gray-100 text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" value="12" required>
+                                <input type="text" id="reps-input" [(ngModel)]="reps" name="reps" class="rounded-full flex-shrink-0 text-gray-900 dark:text-black border-0 bg-gray-100 text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" required>
                               </div>
                             </div>
-                          
+
                             <!-- Weight -->
                             <div class="flex-1 min-w-0 ms-4">
-                              <label for="counter-input" class="block mb-1 text-sm font-medium text-gray-900 dark:text-black">Weight</label>
+                              <label for="weight-input" class="block mb-1 text-sm font-medium text-gray-900 dark:text-black">Weight</label>
                               <div class="relative flex items-center">
-                                  <input type="text" id="counter-input" data-input-counter class="rounded-full flex-shrink-0 text-gray-900 dark:text-black border-0 bg-gray-100 text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" value="12" required>
+                                <input type="text" id="weight-input" [(ngModel)]="weight" name="weight" class="rounded-full flex-shrink-0 text-gray-900 dark:text-black border-0 bg-gray-100 text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" required>
                               </div>
                             </div>
 
@@ -212,7 +213,7 @@
                   </div>
                   <!-- Ejercicios -->
                   <div class="flex flex-row mt-3 text-lg">
-                      <img [src]="exercise.exercise_Image ? exercise.exercise_Image : exercise.exercise_Image1" alt="Imagen de Usuario" class="w-20 h-20 rounded-full">
+                      <img [src]="exercise.exercise_Image ? exercise.exercise_Image : exercise.exercise_Image1" alt="Imagen de Usuario" class="w-16 h-16 rounded-full">
                       <p class="ml-5 font-medium">Rating: <span class="font-normal">{{ exercise.rating }}</span> </p>
                       <p class="ml-5 font-medium">Description: <span class="font-normal">{{ exercise.description }}</span></p>
                       <p class="ml-5 font-medium">Equipment: <span class="font-normal">{{ exercise.equipment }}</span></p>
