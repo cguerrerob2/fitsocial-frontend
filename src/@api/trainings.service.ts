@@ -28,4 +28,9 @@ export class TrainingsService {
   saveTraining(routine: Trainings): Observable<any> {
     return this.http.post(`${this.apiUrl}`, routine);
   }
+
+  deleteTraining(trainingId: number): Observable<void> {
+    const url = `${this.apiUrl}${trainingId}`;
+    return this.http.delete<void>(url);
+  }
 }

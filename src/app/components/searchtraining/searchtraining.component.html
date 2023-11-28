@@ -110,35 +110,41 @@
                     </svg>
                 </button>
             </div>
-            <h1 class="text-black text-start text-2xl font-bold mt-5">Plantillas personalizadas</h1>
+            <h1 class="text-3xl font-bold text-black mt-5">Mis Entrenamientos</h1>
         </div>
 
         <!-- Plantillas Personalizadas -->
         <div class="flex flex-row text-black rounded-xl gap-10">
-          <div class="basis-1/5 bg-gray-50 p-8 rounded-xl" *ngFor="let training of trainingData">
+          <div class="basis-1/2 bg-gray-50 p-8 rounded-xl" *ngFor="let training of trainingData">
             <!-- Title & Buttons Container -->
             <div class="flex gap-2">
-              <h2 class="text-3xl font-bold flex-auto">Training {{ training.id }}</h2>
-              <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="toggleModal()">
+              <h2 class="text-3xl font-bold flex-auto px-4">Training {{ training.id }}</h2>
+              <button class="py-2 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" (click)="deleteTraining(training.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                  <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                  <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                  <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
                 </svg>
               </button>
             </div>
             <!-- Ejercicios -->
-            <div class="flex flex-col mt-2 text-lg">
-              <p class="font-bold">{{ training.reps }} x {{ training.weight }} kg.</p>
-              <ul>
-                <li *ngFor="let exercise of training.exercises" class="mt-2">
-                  <h2 class="flex-auto">{{ exercise.exercise_Name }}</h2>
-                </li>
-              </ul>
-            </div>
-            <div class="flex mt-5">
-              <!-- <button class="w-full font-bold text-xl py-5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white" routerLink="/searchtraining" (click)="addTraining(exercise)">
-                AÑADIR
-              </button> -->
+            <div class="flex flex-col mt-3 text-lg" *ngIf="trainingData && trainingData.length > 0">
+              <div *ngFor="let training of trainingData">
+                  <div class="rounded-lg py-2 px-4 mb-4">
+                      <p class="font-bold">Reps & Weight: 
+                        <span class="font-normal flex">{{ training.reps }} X {{ training.weight }} kg.
+                        </span>
+                      </p>
+                      <p class="font-bold text-xl">Rutina:</p>
+                      <ul class="flex gap-5 mt-3">
+                          <li *ngFor="let exercise of training.exercises">
+                            <img [src]="exercise.exercise_Image ? exercise.exercise_Image : exercise.exercise_Image1" alt="Foto de perfil" class="rounded-full h-12 w-12">
+                            <div>
+                                <h2 class="text-lg font-semibold">{{ exercise.exercise_Name }}</h2>
+                                <label class="text-gray-500">{{ exercise.muscle_gp }}</label>
+                            </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
             </div>
           </div>
           <div class="fixed bottom-5 right-0 m-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg" role="alert" *ngIf="addTrainingSuccess">
@@ -309,4 +315,10 @@
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
       </svg>
   </button>
+</div>
+
+<!-- Delete Alert -->
+<div class="fixed bottom-5 right-5 m-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg" role="alert" *ngIf="deleteSuccess">
+  <p class="font-bold">Entrenamiento Eliminado.</p>
+  <p>Tu entrenamiento se ha eliminado...</p>
 </div>

@@ -118,6 +118,7 @@ export class SearchtrainingComponent implements OnInit {
     this.showAlert = false;
   }
 
+  // Funcion Obsoleta
   async addTraining(exercise: Exercises) {
     // Asigna el ejercicio seleccionado
     this.selectedExercise = exercise;
@@ -134,6 +135,26 @@ export class SearchtrainingComponent implements OnInit {
     setTimeout(() => {
       this.router.navigate(['/training']); // Redirecciona a '/training' después de 2000 ms (2 segundos)
     }, 2000); // Cambia el tiempo (en milisegundos) según tus necesidades
+  }
+
+  public deleteSuccess = false;
+
+  // Delete Trainings
+  async deleteTraining(trainingId: number): Promise<void> {
+    try {
+      // Call your service method to delete the training by ID
+      await this.trainingsService.deleteTraining(trainingId).toPromise();
+  
+      // Optionally, you can update your trainingData array to reflect the changes
+      this.trainingData = this.trainingData.filter(training => training.id !== trainingId);
+    } catch (error) {
+      console.error('Error deleting training:', error);
+    }
+
+    // Notificacion Eliminar Rutina
+    setTimeout(() => {
+      this.deleteSuccess = true; // Marca como inicio de sesión exitoso
+    }, 1000); // Cambia el tiempo (en milisegundos) según tus necesidades
   }
 
 }
