@@ -26,6 +26,8 @@ export class TrainingComponent {
   isOpen = false;
   dataExercises: DataExercises[] = [];
   trainingData: Trainings[] = [];  // Asegúrate de que esta línea esté presente
+  public completeTraining = false; // Variable para controlar si el inicio de sesión fue exitoso
+  public exerciseCompleted = false; // Variable para controlar si el inicio de sesión fue exitoso
 
   async ngOnInit(): Promise<void> {
     // Suscríbete al observable para recibir actualizaciones del correo electrónico del usuario
@@ -47,5 +49,23 @@ export class TrainingComponent {
 
   toggleModal() {
     this.isOpen = !this.isOpen;
+  }
+
+  completarRutina() {
+    this.toggleModal();
+
+    this.completeTraining = true; // Marca como inicio de sesión exitoso
+    setTimeout(() => {
+      this.completeTraining = false; // Marca como inicio de sesión exitoso
+    }, 1000); // Cambia el tiempo (en milisegundos) según tus necesidades
+    
+  }
+
+  onExerciseCompletionChange(training: any, exercise: any): void {
+    // Actualizar el estado de completado del ejercicio
+    this.exerciseCompleted = true;
+    // Guarda en memoria exerciseCompleted
+    localStorage.setItem('exerciseCompleted', JSON.stringify(this.exerciseCompleted));
+    
   }
 }
